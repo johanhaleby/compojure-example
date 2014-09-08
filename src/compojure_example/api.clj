@@ -25,7 +25,7 @@
                            (json-response hal-links)))
                     (GET ["/greet" :name #"\w+"] [name :as request]
                          (let [base-uri (get-base-uri request)]
-                           (json-response {:greeting (str "Greetings " name) :links {:self {:href (str base-uri "/greet?name=" name)}}})))
+                           (json-response {:greeting (str "Greetings " name) :_links {:self {:href (str base-uri "/greet?name=" name)}}})))
                     (ANY "*" []
                          (route/not-found (slurp (io/resource "404.html"))))))
 
