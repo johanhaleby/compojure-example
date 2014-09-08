@@ -23,7 +23,7 @@
                          (let [base-uri (get-base-uri request)
                                hal-links {:_links {:self {:href base-uri} :greet {:href (str base-uri "/greet{?name}") :templated true}}}]
                            (json-response hal-links)))
-                    (GET ["/greet" :name #"\w+"] [name :as request]
+                    (GET ["/greet"] [name :as request]
                          (let [base-uri (get-base-uri request)]
                            (json-response {:greeting (str "Greetings " name) :_links {:self {:href (str base-uri "/greet?name=" name)}}})))
                     (ANY "*" []
